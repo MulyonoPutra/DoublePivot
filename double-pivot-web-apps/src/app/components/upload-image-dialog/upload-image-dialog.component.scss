@@ -1,0 +1,97 @@
+.wrapper-background {
+  @apply relative bg-white;
+  max-width: 800px;
+  width: 800px;
+
+  h1 {
+    @apply tracking-wide text-blue-900;
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+  .body-background {
+    .ngx-dropzone {
+      @apply flex items-center justify-center;
+      border: 1px dashed #4e5764 !important;
+
+      .preview-image {
+        max-width: 150px !important;
+        width: 150px !important;
+
+        .labelname {
+          margin-left: 300px;
+          width: 150px;
+        }
+
+        ngx-dropzone-remove-badge {
+          opacity: 1;
+        }
+      }
+
+      .dropzone-label {
+        @apply flex flex-col items-center justify-center;
+        padding: 0 20px;
+        outline: none;
+        width: 60%;
+
+        img {
+          width: 10%;
+        }
+
+        .icon-folder-upload {
+          position: relative;
+          &::before {
+            background: linear-gradient(
+              201.3deg,
+              #d75853 -33.68%,
+              #df416b 50.42%,
+              #4e2977 128.06%
+            );
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+          }
+
+          .icon-east {
+            @apply absolute;
+            left: 18px;
+            top: 8px;
+            &::before {
+              transform: rotate(-90deg);
+              color: white;
+            }
+          }
+        }
+
+        div {
+          p {
+            &:first-child {
+              &:hover {
+                @apply text-pink-600;
+              }
+              &:active {
+                @apply text-red-800;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-background {
+    @apply mt-5 flex justify-end px-4;
+    .save-btn {
+      @apply rounded border border-indigo-700 bg-indigo-700 py-2 px-4 font-normal text-white shadow hover:bg-gray-100 hover:text-indigo-700;
+      &:hover {
+        @apply text-indigo-700;
+      }
+    }
+
+    .cancel-btn {
+      @apply rounded border border-indigo-700 bg-white py-2 px-4 font-normal text-indigo-700 shadow hover:bg-indigo-700 hover:text-white;
+      &:hover {
+        @apply text-white;
+      }
+    }
+  }
+}

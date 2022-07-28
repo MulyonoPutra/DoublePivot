@@ -1,0 +1,17 @@
+.container {
+  @apply cursor-pointer p-5;
+
+  .read-more {
+    @apply inline-flex items-center rounded-lg border-2 border-indigo-500/100 bg-white px-3 py-2 text-center text-sm font-medium text-indigo-600 hover:bg-indigo-500 hover:text-white focus:ring-4 focus:ring-blue-300;
+  }
+
+  span {
+    @apply mb-2 text-2xl font-bold tracking-tight text-gray-900;
+  }
+
+  ::ng-deep {
+    .ngx-pagination .current {
+      @apply cursor-pointer rounded-full bg-indigo-600 text-white hover:bg-indigo-500 hover:text-white;
+    }
+  }
+}

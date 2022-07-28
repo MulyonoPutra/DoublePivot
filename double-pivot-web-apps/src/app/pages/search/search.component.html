@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="centered">
+    <mat-form-field class="form-width" appearance="outline">
+      <input matInput placeholder="Keyword" type="search" name="search" [(ngModel)]="find" [ngModelOptions]="{ standalone: true }"
+          (keyup)="findByTitle()">
+    </mat-form-field>
+
+    <div *ngIf="find !== ''">
+      <p>Search result for "{{find}}"</p>
+    </div>
+  </div>
+
+  <div class="container p-4">
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let data of articles |  paginate: config">
+        <app-card [posts]="data"></app-card>
+      </div>
+    </div>
+    <div *ngIf="articles.length !== 0">
+      <pagination-controls (pageChange)="getCurrentPage($event)"></pagination-controls>
+    </div>
+  </div>
+
+  <div *ngIf="isEmpty">
+    <div class="centered">
+      <img src="/assets/images/png/empty.png" alt="Empty State">
+    </div>
+  </div>
+</div>

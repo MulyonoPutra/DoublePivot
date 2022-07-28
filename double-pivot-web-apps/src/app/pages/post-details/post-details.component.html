@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="centered">
+    <mat-card>
+      <form class="example-form" [formGroup]="updateForms">
+        <div class="footer-background">
+          <button class="save-btn" (click)="openDialog()">Upload</button>
+        </div>
+        <div class="mb-4 mt-4">
+          <span>{{imagesName}}</span>
+          <img [src]=imagesPreview class="preview">
+        </div>
+
+        <!-- Title Forms -->
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" formControlName="title">
+          </mat-form-field>
+          <control-messages [control]="$any(updateForms).controls.title"></control-messages>
+        </div>
+
+        <!-- Subtitle Forms -->
+        <mat-form-field appearance="outline">
+          <mat-label>Subtitle</mat-label>
+          <textarea matInput placeholder="Subtitle" formControlName="subtitle"></textarea>
+        </mat-form-field>
+        <control-messages [control]="$any(updateForms).controls.subtitle"></control-messages>
+        <mat-form-field appearance="outline">
+          <mat-label>Author</mat-label>
+          <input matInput placeholder="Author" formControlName="author">
+        </mat-form-field>
+        <control-messages [control]="$any(updateForms).controls.author"></control-messages>
+        <div>
+          <angular-editor formControlName="content" [value]="this.updateForms.get('content')?.value | sanitizeHtml"
+            [config]="config"></angular-editor>
+          <control-messages [control]="$any(updateForms).controls.content"></control-messages>
+        </div>
+        <br>
+
+        <div formGroupName="category">
+          <mat-form-field appearance="outline">
+            <mat-label>Categories</mat-label>
+            <mat-select (selectionChange)="selectionChanged($event)">
+              <mat-option *ngFor="let data of category" [value]="data">
+                {{data.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="footer-background">
+          <button class="save-btn" [disabled]="!updateForms.valid" (click)="save()">Save</button>
+        </div>
+
+      </form>
+    </mat-card>
+  </div>
+</div>

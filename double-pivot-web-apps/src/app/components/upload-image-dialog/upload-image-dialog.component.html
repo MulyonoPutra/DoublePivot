@@ -1,0 +1,19 @@
+<div class="wrapper-background">
+  <div class="body-background">
+    <div class="custom-dropzone" ngx-dropzone [accept]="'image/jpeg,image/jpg,image/png,image/gif'"
+      (change)="onSelect($event)">
+      <ngx-dropzone-label>
+        <div>
+          <h2>Tap or Drop your image here</h2>
+        </div>
+      </ngx-dropzone-label>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+        [removable]="true" (removed)="onRemove(f)">
+      </ngx-dropzone-image-preview>
+    </div>
+  </div>
+  <div class="footer-background">
+    <button class="cancel-btn mr-2" (click)="closeModal()">Cancel</button>
+    <button class="save-btn" (click)="saveFile()">Insert</button>
+  </div>
+</div>

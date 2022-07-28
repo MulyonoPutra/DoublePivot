@@ -1,0 +1,28 @@
+.container {
+  @apply p-4;
+
+  .title-hr {
+    @apply flex w-auto items-center text-left align-middle;
+  }
+
+  .title-hr > span {
+    padding: 0 0.4em;
+  }
+
+  .title-hr > .hr {
+    border-bottom: 2px solid #6500b0;
+    line-height: 0.1em;
+    margin: 0.34em 0 0.35em;
+    flex: 1 1 auto;
+  }
+
+  .title-hr > .hr.fix {
+    flex: 0 1 auto;
+  }
+
+  .text {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: rgb(208, 255, 0);
+    font-size: 24px;
+  }
+}

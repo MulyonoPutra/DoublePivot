@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body mt-4">
+    <a routerLink="/">
+      <img class="rounded-t-lg" [src]="posts?.images === '' ? randomImages : posts?.images" alt="Images">
+    </a>
+    <div class="tooltip p-4">
+      <a routerLink="/">
+        <h5>{{ posts.title | shortener: 22 }}</h5>
+      </a>
+      <div class="text">
+        {{ posts.title }}
+      </div>
+      <p>{{ posts.subtitle | shortener: 70 }}</p>
+    </div>
+
+    <div class="px-4 pb-4">
+      <div class="flex space-x-1">
+        <div>
+          <span>{{posts.createdBy}}</span>
+        </div>
+      </div>
+      <!-- <div class="mb-2">{{posts.category?.name}}</div> -->
+      <div class="time-ago mb-2">
+        <span>{{posts.createdDate | timeAgo }}</span>
+      </div>
+      <div class="flex space-x-4">
+        <div>
+          <a class="read-more" (click)="navigate(posts.id, 'details')">
+            Read more
+          </a>
+        </div>
+        <div *ngIf="update">
+          <a class="read-more" (click)="navigate(posts.id, 'update')">
+            Update
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

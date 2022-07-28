@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap");
+
+* {
+  font-family: "Jost", sans-serif;
+}
+.container {
+  @apply p-6;
+
+  .centered {
+    @apply mx-auto cursor-pointer p-4 shadow-md border-gray-200 rounded-lg;
+  }
+
+  .upload-btn {
+    @apply bg-indigo-600 hover:bg-indigo-400 text-white font-normal rounded-lg py-2 px-4 inline-flex items-center mb-2;
+  }
+
+  ::ng-deep {
+    .mat-card {
+      @apply mx-auto mb-4 max-w-lg;
+
+      .mat-form-field {
+        @apply w-full;
+      }
+
+      .mat-form-field-wrapper {
+        padding-bottom: 0.3em;
+      }
+    }
+  }
+
+  .footer-background {
+    @apply flex justify-end mt-5 px-4;
+    .save-btn {
+      @apply bg-indigo-700 hover:bg-gray-100 text-white hover:text-indigo-700 font-normal py-2 px-4 border border-indigo-700 rounded shadow;
+      &:hover {
+        @apply text-indigo-700;
+      }
+
+      &:disabled {
+        @apply cursor-not-allowed bg-gray-400 text-white border-gray-50;
+      }
+    }
+
+    .cancel-btn {
+      @apply bg-white hover:bg-indigo-700 text-indigo-700 hover:text-white font-normal py-2 px-4 border border-indigo-700 rounded shadow;
+      &:hover {
+        @apply text-white;
+      }
+    }
+  }
+
+  .filewrap {
+    @apply relative bg-white border-2 border-indigo-600 rounded-lg shadow-md text-indigo-600 mt-5 p-2 mb-7;
+  }
+
+  .preview {
+    @apply rounded-lg;
+  }
+
+  input[type="file"] {
+    @apply w-auto h-auto opacity-0 absolute top-0 left-0 cursor-pointer;
+  }
+}

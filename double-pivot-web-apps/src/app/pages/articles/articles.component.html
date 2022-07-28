@@ -1,0 +1,15 @@
+<div class="container p-4">
+  <section *ngIf="articles != null; else empty">
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let data of articles |  paginate: config">
+        <app-card [posts]="data"></app-card>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="getCurrentPage($event)"></pagination-controls>
+  </section>
+  <section>
+    <ng-template #empty>
+      <app-empty-state></app-empty-state>
+    </ng-template>
+  </section>
+</div>

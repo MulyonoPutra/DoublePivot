@@ -1,0 +1,60 @@
+.card {
+  @apply mx-auto max-w-lg cursor-pointer;
+  &-body {
+    @apply mb-5 max-w-sm rounded-lg border border-gray-200 bg-white shadow-md;
+  }
+
+  p {
+    @apply mb-2 font-normal text-gray-700;
+
+    &:nth-child(1) {
+      @apply font-thin text-gray-600;
+    }
+    &:nth-child(2) {
+      @apply font-thin text-gray-500;
+    }
+  }
+
+  h5 {
+    @apply mb-2 text-2xl font-bold tracking-tight text-gray-900;
+  }
+
+  img {
+    @apply h-56 w-auto;
+  }
+
+  .read-more {
+    @apply inline-flex items-center rounded-lg border-2 border-indigo-500/100 bg-white px-3 py-2 text-center text-sm font-medium text-indigo-600 hover:bg-indigo-500 hover:text-white focus:ring-4 focus:ring-blue-300;
+  }
+
+  .time-ago {
+    @apply text-gray-500;
+    font-size: 12px;
+  }
+
+  .tooltip {
+    @apply relative inline-block;
+
+    .text {
+      @apply invisible absolute z-10 w-52 rounded-md p-4 text-left leading-4 tracking-normal;
+      color: #ffffff;
+      background: #980dff;
+      a {
+        @apply cursor-pointer;
+      }
+    }
+  }
+
+  .tooltip:hover .text {
+    @apply visible bottom-60 left-14 tracking-wider;
+    &::after {
+      content: "";
+      @apply absolute h-4 w-5;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid #980dff;
+      bottom: -15px;
+      left: 130px;
+    }
+  }
+}

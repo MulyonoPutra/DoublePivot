@@ -1,0 +1,98 @@
+<nav class="navbar" [ngClass]="isSticky ? 'navbar-white' : 'navbar-gray'">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="flex--center">
+        <div class="flex flex-shrink-0 items-center">
+          <img class="block h-8 w-auto lg:hidden" src="{{ defaultLogo }}" alt="Double Pivot" />
+          <a routerLink="/home">
+            <span class="navbar-title">Double Pivot Magazine</span>
+          </a>
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <div *ngIf="isAdmin">
+              <a class="list" routerLink="/articles">Articles</a>
+            </div>
+            <div>
+              <a class="list" routerLink="/trivia-list">Trivia</a>
+            </div>
+            <div>
+              <a class="list" routerLink="/stories">Stories</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view-notification">
+        <div class="relative ml-3">
+          <div>
+            <button type="button" class="profile-dropdown-btn" [ngClass]="
+                isSticky
+                  ? 'profile-dropdown-btn-indigo'
+                  : 'profile-dropdown-btn-gray'
+              " id="user-menu-button" aria-expanded="false" aria-haspopup="true" routerLink="/search">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="./assets/images/svg/search.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <div class="profile-header" [ngClass]="isSticky ? 'navbar-white' : 'navbar-gray'">
+          <div class="hidden w-full pr-6 lg:flex">
+            <div class="hidden lg:flex">
+              <div class="flex w-full items-center justify-end pl-8">
+                <div class="relative flex cursor-pointer items-center"
+                  (click)="isList === 1 ? (isList = 0) : (isList = 1)">
+                  <div class="rounded-full">
+                    <div class="relative" *ngIf="profiles?.profilePicture !== null">
+                      <a routerLink="/profile">
+                      <img class="h-10 w-10 rounded-full object-cover" [src]="profiles?.profilePicture" alt="avatar" />
+                      </a>
+                      <div class="profile-online">
+                      </div>
+                    </div>
+                  </div>
+                  <p class="profile-name">{{profiles?.name}}</p>
+                  <div class="cursor-pointer text-white">
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="navigate('profile')" *ngIf="isLoggedIn">
+                        <mat-icon>account_circle</mat-icon>
+                        <span>Profile</span>
+                      </button>
+                      <button mat-menu-item (click)="navigate('post')" *ngIf="isLoggedIn">
+                        <mat-icon>dialpad</mat-icon>
+                        <span>New Post</span>
+                      </button>
+                      <button mat-menu-item (click)="logout()" *ngIf="isLoggedIn">
+                        <mat-icon>input</mat-icon>
+                        <span>Sign out</span>
+                      </button>
+                      <button mat-menu-item (click)="navigate('login')" *ngIf="!isLoggedIn">
+                        <mat-icon>input</mat-icon>
+                        <span>Login</span>
+                      </button>
+                      <button mat-menu-item (click)="navigate('register')" *ngIf="!isLoggedIn">
+                        <mat-icon>notifications_off</mat-icon>
+                        <span>Register</span>
+                      </button>
+                    </mat-menu>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      <a routerLink="/" class="list-mobile" aria-current="page">Articles</a>
+      <a routerLink="/" class="list-mobile">Trivia</a>
+      <a routerLink="/" class="list-mobile">About</a>
+    </div>
+  </div>
+</nav>

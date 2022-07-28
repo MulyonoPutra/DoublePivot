@@ -1,0 +1,16 @@
+<div class="card-large">
+  <div>
+    <a routerLink="/">
+      <img [src]="posts?.images === '' ? randomImages : posts?.images" alt="">
+    </a>
+    <div class="p-6">
+      <h5>{{ posts.title | shortener: 25 }}</h5>
+      <p>{{ posts.subtitle | shortener: 90 }}</p>
+      <p>{{ posts.author }}</p>
+      <div>{{posts.category.name}}</div>
+      <a class="read-more" (click)="details(posts.id)">
+        Read more
+      </a>
+    </div>
+  </div>
+</div>

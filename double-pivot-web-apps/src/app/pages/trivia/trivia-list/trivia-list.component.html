@@ -1,0 +1,25 @@
+<div class="container">
+  <section *ngIf="trivia != null; else empty">
+    <div class="flex px-4">
+      <div class="flex-none">
+        <div>
+          <span>Trivia</span>
+        </div>
+      </div>
+      <div class="grow"></div>
+    </div>
+    <div class="px-4">
+      <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let data of trivia |  paginate: config">
+          <app-card [posts]="data"></app-card>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="getCurrentPage($event)"></pagination-controls>
+    </div>
+  </section>
+  <section>
+    <ng-template #empty>
+      <app-empty-state></app-empty-state>
+    </ng-template>
+  </section>
+</div>

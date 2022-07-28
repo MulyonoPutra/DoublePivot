@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="centered">
+    <mat-card>
+      <div>
+        <span>Login</span>
+      </div>
+      <form [formGroup]="loginForms" class="mt-4">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
+          <control-messages [control]="$any(loginForms).controls.username"></control-messages>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" [type]="isHidden ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="isHidden = !isHidden">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+
+          <control-messages [control]="$any(loginForms).controls.password"></control-messages>
+        </div>
+        <div>
+          <span class="forgot-password" routerLink="/send-email">Forgot Password</span>
+        </div>
+        <div class="footer-background">
+          <button class="save-btn" [disabled]="!loginForms.valid" (click)="login()">Login</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

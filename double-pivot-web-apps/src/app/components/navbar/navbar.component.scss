@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  &-gray {
+    @apply bg-gray-800;
+  }
+
+  &-white {
+    @apply bg-indigo-700;
+  }
+
+  &-title {
+    font-family: 'Ms Madi', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .flex--center {
+    @apply flex flex-1 items-center justify-center sm:items-stretch sm:justify-start;
+  }
+
+  .list {
+    @apply rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
+    &:active {
+      @apply rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white;
+    }
+
+    &-mobile {
+      @apply block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
+
+      &:active {
+        @apply block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white;
+      }
+    }
+  }
+
+  .list-gray {
+    @apply rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white;
+    &:active {
+      @apply rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white;
+    }
+
+    &-mobile {
+      @apply block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
+
+      &:active {
+        @apply block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white;
+      }
+    }
+  }
+
+  .mobile-menu {
+    &-header {
+      @apply absolute inset-y-0 left-0 flex items-center sm:hidden;
+    }
+    &-btn {
+      @apply inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white;
+    }
+  }
+
+  .view-notification {
+    @apply absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0;
+
+    &-btn {
+      @apply rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800;
+    }
+  }
+
+  .profile-dropdown-btn {
+    &-gray {
+      @apply flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800;
+    }
+
+    &-indigo {
+      @apply flex rounded-full bg-indigo-700 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800;
+    }
+  }
+
+  .profile {
+    &-name {
+      @apply text-white text-sm mx-3 mr-4
+    }
+    &-header {
+      @apply h-16 flex items-center lg:items-stretch justify-end lg:justify-between shadow relative z-10
+    }
+    &-online {
+      @apply absolute inset-0 m-auto mb-0 mr-0 h-2 w-2 rounded-full border border-white bg-green-400;
+    }
+  }
+
+
+  .dropdown {
+
+    &-list {
+      @apply p-2 w-full border-r bg-white absolute rounded left-0 shadow mt-12 sm:mt-16;
+    }
+    &-edit-profile {
+      @apply flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center
+    }
+
+    &-logout {
+      @apply flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2
+    }
+  }
+}

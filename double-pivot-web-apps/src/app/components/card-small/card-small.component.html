@@ -1,0 +1,18 @@
+<div class="card">
+  <div>
+    <div class="p-5 tooltip">
+      <a routerLink="/">
+        <h5>{{ posts.title | shortener: 22 }}</h5>
+      </a>
+      <div class="text">
+        {{ posts.title }}
+      </div>
+      <p>{{ posts.subtitle | shortener: 70 }}</p>
+      <p>{{ posts.author}}</p>
+      <div>{{posts.category.name}}</div>
+      <a class="read-more" (click)="details(posts.id)">
+        Read more
+      </a>
+    </div>
+  </div>
+</div>

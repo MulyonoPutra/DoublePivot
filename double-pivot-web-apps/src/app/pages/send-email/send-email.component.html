@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="centered">
+    <mat-card>
+      <div>
+        <span>Send Email</span>
+      </div>
+      <form [formGroup]="emailForm" class="mt-4">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="mailTo">
+          </mat-form-field>
+          <control-messages [control]="$any(emailForm).controls.mailTo"></control-messages>
+        </div>
+        <div class="footer-background">
+          <button class="save-btn" [disabled]="!emailForm.valid" (click)="sendEmail()">Send Email</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

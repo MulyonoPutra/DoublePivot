@@ -1,0 +1,65 @@
+<div class="container">
+  <section>
+    <div class="flex space-x-1">
+      <div *ngFor="let data of postCollectionsLg; let i = index">
+        <app-card-large [posts]="data"></app-card-large>
+      </div>
+      <div class="flex flex-col space-y-1">
+        <div *ngFor="let data of postCollectionsSm; let i = index">
+          <app-card-small [posts]="data"></app-card-small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="flex px-4 mt-10">
+      <div class="flex-none">
+        <div>
+          <span>Articles</span>
+        </div>
+      </div>
+      <div class="grow"></div>
+      <div class="flex-none">
+        <div class="">
+          <button class="read-more" routerLink="/articles">Read more Articles</button>
+        </div>
+      </div>
+    </div>
+    <div class="px-4">
+      <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let data of articlesCollections; let i = index">
+          <app-card [posts]="data"></app-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="flex px-4">
+      <div class="flex-none">
+        <div>
+          <span>Trivia</span>
+        </div>
+      </div>
+      <div class="grow"></div>
+      <div class="flex-none">
+        <div class="">
+          <button class="read-more" routerLink="/trivia-list">Read more Trivia</button>
+        </div>
+      </div>
+    </div>
+    <div class="px-4">
+      <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let data of triviaCollections; let i = index">
+          <app-card [posts]="data"></app-card>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="justify-center text-center">
+    <button [ngClass]="{'show-scroll': showScroll}" (click)="scrollToTop()" class="scroll-to-top">
+      <img src="/assets/images/png/up-arrow.png" alt="Scroll on Top" height="40" width="40" />
+    </button>
+  </div>
+</div>
